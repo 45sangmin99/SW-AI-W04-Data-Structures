@@ -113,7 +113,6 @@ void alternateMergeLinkedList(LinkedList *ll1, LinkedList *ll2)
 	temp.size = 0;
 	cur1 = ll1->head;
 	cur2 = ll2->head;
-	int index = 0;
 	do{
 		insertNode(&temp, temp.size, cur1->item);
 		cur1 = cur1->next;

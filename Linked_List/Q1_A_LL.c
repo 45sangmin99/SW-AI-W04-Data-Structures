@@ -71,7 +71,6 @@ int main()
 		case 3:
 			printf("The resulting sorted linked list is: ");
 			printList(&ll);
-			removeAllItems(&ll);
 			break;
 		case 0:
 			removeAllItems(&ll);
@@ -158,7 +157,7 @@ ListNode *findNode(LinkedList *ll, int index){
 		index--;
 	}
 
-	return temp;
+	return temp; 
 }
 
 int insertNode(LinkedList *ll, int index, int value){
