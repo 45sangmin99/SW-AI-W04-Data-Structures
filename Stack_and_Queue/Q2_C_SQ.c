@@ -122,7 +122,6 @@ void createStackFromLinkedList(LinkedList *ll, Stack *s)
 
 void removeEvenValues(Stack *s)
 {
-	/* add your code here */
 	Stack tempStack;
 	tempStack.ll.head = NULL;
 	tempStack.ll.size = 0;

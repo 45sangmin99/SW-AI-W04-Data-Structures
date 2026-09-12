@@ -118,7 +118,7 @@ void reverse(Queue *q)
 }
 
 ListNode* reverseHelper(ListNode* node){
-	if(node->next == NULL){
+	if(!node->next){
 		return node;
 	}
 	ListNode* temp = reverseHelper(node->next);

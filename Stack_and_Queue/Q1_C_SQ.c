@@ -122,9 +122,7 @@ void createQueueFromLinkedList(LinkedList *ll, Queue *q){
 }
 
 void removeOddValues(Queue *q){
-	if(q == NULL){
-		return;
-	}
+	if(!q) return;
 	int length = q->ll.size;
 	for(int i = 0; i < length; i++){
 		int temp = dequeue(q);
