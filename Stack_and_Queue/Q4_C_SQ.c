@@ -39,6 +39,7 @@ typedef struct _queue{
 
 // You should not change the prototypes of these functions
 void reverse(Queue *q);
+ListNode* reverseHelper(ListNode* ListNode);
 
 void push(Stack *s, int item);
 int pop(Stack *s);
@@ -112,9 +113,19 @@ int main()
 
 void reverse(Queue *q)
 {
-/* add your code here */
+    ListNode** ptrHead = &(q->ll.head);
+	*ptrHead = reverseHelper(*ptrHead);
 }
 
+ListNode* reverseHelper(ListNode* node){
+	if(node->next == NULL){
+		return node;
+	}
+	ListNode* temp = reverseHelper(node->next);
+	node->next->next = node;
+	node->next = NULL;
+	return temp;
+}
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 
 void push(Stack *s, int item){
