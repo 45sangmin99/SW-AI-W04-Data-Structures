@@ -88,7 +88,6 @@ int main()
 
 int moveMaxToFront(ListNode **ptrHead)
 {
-    /* add your code here */
 	if (*ptrHead == NULL){
 		return -1;
 	}

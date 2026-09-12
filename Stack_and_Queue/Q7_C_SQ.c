@@ -118,25 +118,19 @@ int balanced(char *expression)
 			push(&tempStack, expression[i]);
 			break;
 		case ']':
-			temp = pop(&tempStack);
-			if (temp != '['){
-				return 1;
-			}
-			break;
 		case '}':
-			temp = pop(&tempStack);
-			if (temp != '{'){
+		temp = pop(&tempStack);
+			if (temp+2 != expression[i]){
 				return 1;
 			}
 			break;
 		case ')':
 			temp = pop(&tempStack);
-			if (temp != '('){
+			if (temp+1 != expression[i]){
 				return 1;
 			}
 			break;
 		default:
-			return 0;
 		}
 	}
 	if(tempStack.ll.size == 0){
