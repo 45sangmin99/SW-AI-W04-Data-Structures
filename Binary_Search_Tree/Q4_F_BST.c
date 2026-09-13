@@ -91,7 +91,10 @@ int main()
 
 void postOrderIterativeS1(BSTNode *root)
 {
-	 /* add your code here */
+	if(!root)return;
+	if(root->left)postOrderIterativeS1(root->left);
+	if(root->right)postOrderIterativeS1(root->right);
+	printf("%d ",root->item);
 }
 
 ///////////////////////////////////////////////////////////////////////////////
