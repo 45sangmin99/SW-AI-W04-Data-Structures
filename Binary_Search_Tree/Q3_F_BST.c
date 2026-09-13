@@ -91,7 +91,10 @@ int main()
 
 void preOrderIterative(BSTNode *root)
 {
-	 /* add your code here */
+	if(!root)return;
+	printf("%d ",root->item);
+	if(root->left)preOrderIterative(root->left);
+	if(root->right)preOrderIterative(root->right);
 }
 
 ///////////////////////////////////////////////////////////////////////////////
