@@ -91,11 +91,11 @@ int insertSortedLL(LinkedList *ll, int item)
 {
 	int index = 0;
 	ListNode *cur = ll->head;
-	while (cur != NULL && item > cur->item){
+	while (cur && item > cur->item){
 		cur = cur->next;
 		index ++;
 	}
-	if (cur != NULL && item == cur->item){
+	if (cur && item == cur->item){
 		return -1;
 	}
 	insertNode(ll,index,item);

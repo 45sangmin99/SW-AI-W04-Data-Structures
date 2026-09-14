@@ -110,7 +110,6 @@ int main()
 
 void recursiveReverse(Queue *q)
 {
-/* add your code here */
     ListNode** ptrHead = &(q->ll.head);
 	*ptrHead = reverseHelper(*ptrHead);
 }

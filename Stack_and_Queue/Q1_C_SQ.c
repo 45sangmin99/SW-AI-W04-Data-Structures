@@ -116,20 +116,12 @@ int main()
 
 void createQueueFromLinkedList(LinkedList *ll, Queue *q){
 	removeAllItemsFromQueue(q);
-	for(ListNode* node = ll->head; node != NULL; node = node->next){
+	for(ListNode* node = ll->head; node != NULL; node = node->next)
 		enqueue(q, node->item);
-	}
 }
 
 void removeOddValues(Queue *q){
-	if(!q) return;
-	int length = q->ll.size;
-	for(int i = 0; i < length; i++){
-		int temp = dequeue(q);
-		if (temp%2 == 0){
-			enqueue(q, temp);
-		}
-	}
+	for(int i=q->ll.size,x;i--;)if(!((x=dequeue(q))%2))enqueue(q,x);
 }
 
 //////////////////////////////////////////////////////////////////////////////////

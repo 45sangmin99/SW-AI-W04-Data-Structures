@@ -102,42 +102,18 @@ int main()
 }
 
 ////////////////////////////////////////////////////////////
-int balanced(char *expression)
-{
-/* add your code here */
-	Stack tempStack;
-	tempStack.ll.head = NULL;
-	tempStack.ll.size = 0;
-	for(int i = 0; expression[i] != '\0'; i++){
-		char temp;
-		switch (expression[i])
-		{
-		case '[':
-		case '{':
-		case '(':
-			push(&tempStack, expression[i]);
-			break;
-		case ']':
-		case '}':
-		temp = pop(&tempStack);
-			if (temp+2 != expression[i]){
-				return 1;
+int balanced(char *expression){
+	Stack s={{0,NULL}};
+	for(int i = 0; expression[i]; i++)
+		switch (expression[i]){
+			case '[': case '{': case '(':
+				push(&s, expression[i]);
+				break;
+			case ']': case '}': case ')':
+				if (pop(&s)!=(expression[i]-(expression[i]==')'?1:2)))return 1;
+				break;
 			}
-			break;
-		case ')':
-			temp = pop(&tempStack);
-			if (temp+1 != expression[i]){
-				return 1;
-			}
-			break;
-		default:
-		}
-	}
-	if(tempStack.ll.size == 0){
-		return 0;
-	}else{
-		return 1;
-	}
+	return !!s.ll.size;
 }
 
 ////////////////////////////////////////////////////////////
