@@ -113,19 +113,11 @@ int main()
 
 void reverse(Queue *q)
 {
-    ListNode** ptrHead = &(q->ll.head);
-	*ptrHead = reverseHelper(*ptrHead);
+	Stack temp = {{0,NULL,NULL}};
+    while(q->ll.size&&(push(&temp,dequeue(q)),1));
+	while(temp.ll.size&&(enqueue(q,pop(&temp)),1));
 }
 
-ListNode* reverseHelper(ListNode* node){
-	if(!node->next){
-		return node;
-	}
-	ListNode* temp = reverseHelper(node->next);
-	node->next->next = node;
-	node->next = NULL;
-	return temp;
-}
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 
 void push(Stack *s, int item){

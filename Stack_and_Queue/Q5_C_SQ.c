@@ -33,7 +33,6 @@ typedef struct _queue
 
 // You should not change the prototypes of these functions
 void recursiveReverse(Queue *q);
-ListNode* reverseHelper(ListNode* ListNode);
 
 // You may use the following functions or you may write your own
 void enqueue(Queue *q, int item);
@@ -110,20 +109,11 @@ int main()
 
 void recursiveReverse(Queue *q)
 {
-    ListNode** ptrHead = &(q->ll.head);
-	*ptrHead = reverseHelper(*ptrHead);
+	if(!(q->ll.size))return;
+    int temp = dequeue(q);
+	recursiveReverse(q);
+	enqueue(q,temp);
 }
-
-ListNode* reverseHelper(ListNode* node){
-	if(node->next == NULL){
-		return node;
-	}
-	ListNode* temp = reverseHelper(node->next);
-	node->next->next = node;
-	node->next = NULL;
-	return temp;
-}
-
 
 //////////////////////////////////////////////////////////////////
 

@@ -105,7 +105,7 @@ int isStackPairwiseConsecutive(Stack *s)
 {
 	if(s->ll.size%2)return 0;
 	for(ListNode *n = s->ll.head; n; n = n->next->next)
-		if(abs(n->item-n->next->next->item)!=1)return 0;
+		if(abs(n->item-n->next->item)!=1)return 0;
 	return 1;
 }
 

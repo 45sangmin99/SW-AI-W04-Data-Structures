@@ -35,8 +35,6 @@ ListNode * findNode(LinkedList *ll, int index);
 int insertNode(LinkedList *ll, int index, int value);
 int removeNode(LinkedList *ll, int index);
 
-ListNode* reverseHelper(ListNode* node);
-
 //////////////////////////// main() //////////////////////////////////////////////
 
 int main()
@@ -88,17 +86,12 @@ int main()
 
 void RecursiveReverse(ListNode **ptrHead)
 {
-	*ptrHead = reverseHelper(*ptrHead);
-}
-
-ListNode* reverseHelper(ListNode* node){
-	if(node->next == NULL){
-		return node;
-	}
-	ListNode* temp = reverseHelper(node->next);
-	node->next->next = node;
-	node->next = NULL;
-	return temp;
+	if(!(*ptrHead)->next)return;
+	ListNode *temp = (*ptrHead)->next;
+	RecursiveReverse(&temp);
+	(*ptrHead)->next->next = *ptrHead;
+	(*ptrHead)->next = NULL;
+	*ptrHead = temp;
 }
 
 //////////////////////////////////////////////////////////////////////////////////
